@@ -42,7 +42,7 @@ class DbtCloudRunSensor(BaseSensorOperator):
 
         if run_status in FAILED_RUN_STATES:
             raise AirflowException(
-                'dbt cloud Run ID {} failed with status "{}".'.format(
+                'dbt cloud Run ID {} failed with status: "{}".'.format(
                     self.run_id, run_status
                 )
             )
