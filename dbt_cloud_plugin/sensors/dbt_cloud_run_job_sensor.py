@@ -3,7 +3,7 @@ from airflow.sensors.base_sensor_operator import BaseSensorOperator
 from airflow.utils.decorators import apply_defaults
 from airflow.exceptions import AirflowException
 
-class DbtCloudRunSensor(BaseSensorOperator):
+class DbtCloudRunJobSensor(BaseSensorOperator):
     """
     Asks for the state of a dbt Cloud job until it reaches a terminal state.
     If it fails the sensor errors, failing the task.
@@ -20,7 +20,7 @@ class DbtCloudRunSensor(BaseSensorOperator):
                  dbt_cloud_conn_id=None,
                  run_id=None,
                  *args, **kwargs):
-        super(DbtCloudRunSensor, self).__init__(*args, **kwargs)
+        super(DbtCloudRunJobSensor, self).__init__(*args, **kwargs)
 
         if dbt_cloud_conn_id is None:
             raise AirflowException('No valid dbt cloud connection ID was supplied.')
